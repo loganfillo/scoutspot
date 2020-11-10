@@ -4,8 +4,10 @@ import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
 
-import theme from 'constants/theme';
+import theme from 'constants/themes/light';
+
 export default class ScoutspotDocument extends Document {
+
   render() {
     return (
       <Html lang="en">

@@ -4,8 +4,8 @@ import { useRouter } from 'next/router'
 
 const useStyles = makeStyles(theme => ({
     login: {
-        backgroundColor: 'lightgray',
-        color: theme.text.color.primary,
+        backgroundColor: theme.palette.primary.main,
+        color: theme.palette.primary.contrastText,
         padding: '30vh',
         border: '2px black solid',
         margin: '5vw',
@@ -29,7 +29,7 @@ const Login = (props) => {
         //TODO: Handle the auth api request here, only call onLogin if successful
         window.localStorage.setItem('user', JSON.stringify(user));
         onLogin(user);
-        hrouter.push("/home");
+        router.push("/home");
     }
 
     return (
