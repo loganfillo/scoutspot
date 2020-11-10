@@ -1,0 +1,2 @@
+# scoutspot
+Scoutspot App
