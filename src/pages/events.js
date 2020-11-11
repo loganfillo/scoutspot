@@ -13,7 +13,7 @@ const useStyles = makeStyles( theme => ({
     }
 }))
 
-const Events = (props) => {
+const Events = () => {
 
     const classes = useStyles();
 

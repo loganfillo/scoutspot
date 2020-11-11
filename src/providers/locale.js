@@ -14,9 +14,9 @@ export const useLocale= () => {
 
 export const LocaleProvider = ({ children }) => {
 
-    const [language, setLanguage] = useState('en')
+    const [language, setLanguage] = useState('')
     const [context, setContext] = useState({
-        language: 'en',
+        language: '',
         text: '',
         onLocaleChange: (newLang) => {
             setLanguage(newLang)

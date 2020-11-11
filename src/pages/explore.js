@@ -13,11 +13,9 @@ const useStyles = makeStyles( theme => ({
     }
 }))
 
-const Explore = (props) => {
+const Explore = () => {
 
     const classes = useStyles();
-
-    const { user } = props;
 
     return (
         <div className={classes.explore}>
