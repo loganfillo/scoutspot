@@ -1,7 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles( theme => ({
+import PageContainer from 'components/pageContainer'
+import { getLocalizationProps } from 'providers/locale'
+
+const useStyles = makeStyles(theme => ({
     about: {
         backgroundColor: theme.palette.secondary.main,
         color: theme.palette.secondary.contrastText,
@@ -13,15 +16,24 @@ const useStyles = makeStyles( theme => ({
     }
 }))
 
-const About = () => {
-    
+const About = ({ localization }) => {
+
     const classes = useStyles();
 
     return (
-        <div className={classes.about}>
-            <h1>About</h1>
-        </div>
+        <PageContainer localization={localization}>
+            <div className={classes.about}>
+                <h1>{localization.text.ABOUT}</h1>
+            </div>
+        </PageContainer>
     )
+}
+
+export async function getStaticProps({ ...locale }) {
+    const localization = getLocalizationProps(locale.locale)
+    return {
+        props: { localization }
+    }
 }
 
 export default About;

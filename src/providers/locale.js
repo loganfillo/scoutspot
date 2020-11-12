@@ -1,47 +1,47 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { useRouter } from "next/router"
 
-import { DEFAULT_LANGUAGE } from 'constants/defaults'
+import localeTextMap from 'constants/locales'
 
 const LocaleContext = createContext({
-    language: '',
+    locale: '',
     text: {},
-    onLocaleChange: () => {}
 })
 
-export const useLocale= () => {
+export const useLocale = () => {
     return useContext(LocaleContext)
 }
 
-export const LocaleProvider = ({ children }) => {
+export const LocaleProvider = ({ localization, children }) => {
 
-    const [language, setLanguage] = useState('')
+    const { locale } = useRouter();
+
     const [context, setContext] = useState({
-        language: '',
-        text: '',
-        onLocaleChange: (newLang) => {
-            setLanguage(newLang)
-        }
+        locale: '',
+        text: {},
     })
 
-    useEffect(() => {
-        setLanguage(DEFAULT_LANGUAGE)
-    }, [])
+    // TODO: Add effect hook to store locale in local storage
 
     useEffect(() => {
-        const newLang = language;
-        //TODO: fetch the text associated to the new language
-        setContext({ ...context,
-            language: newLang,
-            text: { msg: 'Your Language is: ' + newLang }
-        });
-    }, [language]);
-
+        setContext({
+            locale: localization.locale,
+            text: localization.text
+        })
+    },[locale])
 
     return (
         <LocaleContext.Provider value={context}>
             { children }
         </LocaleContext.Provider>
     )
+}
+
+export function getLocalizationProps(locale) {
+    return {
+        locale: locale,
+        text: localeTextMap[locale]
+    }
 }
 
 
