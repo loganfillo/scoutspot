@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-import { useLocale } from 'providers/locale';
-import { useTheme } from 'providers/theme';
+import { useLocale } from 'common/localeContext';
+import { useTheme } from 'common/themeContext';
 
 const useStyles = makeStyles(theme => ({
     header: {

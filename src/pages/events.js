@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import PageContainer from 'components/pageContainer'
-import { getLocalizationProps } from 'providers/locale'
+import { getLocalizationProps } from 'common/localeContext'
 
 const useStyles = makeStyles(theme => ({
     events: {

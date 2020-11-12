@@ -2,7 +2,7 @@ import React from 'react'
 import Header from './header'
 import Footer from './footer'
 
-import { LocaleProvider } from 'providers/locale'
+import { LocaleProvider } from 'common/localeContext'
 
 const PageContainer = ({ localization, children }) => {
     return (

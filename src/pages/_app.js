@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import Head from 'next/head'
 import CssBaseline from '@material-ui/core/CssBaseline'
 
-import { AuthProvider } from 'providers/auth'
-import { ThemeProvider } from 'providers/theme'
+import { ThemeProvider } from 'common/themeContext'
 
 const App = ({ Component, pageProps }) => {
 
@@ -22,10 +21,8 @@ const App = ({ Component, pageProps }) => {
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
       <ThemeProvider>
-        <AuthProvider>
-          <CssBaseline />
-          <Component {...pageProps} />
-        </AuthProvider>
+        <CssBaseline />
+        <Component {...pageProps} />
       </ThemeProvider>
     </Fragment>
   )
